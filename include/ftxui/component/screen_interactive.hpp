@@ -59,7 +59,8 @@ class ScreenInteractive : public Screen {
   ScreenInteractive(int dimx,
                     int dimy,
                     Dimension dimension,
-                    bool use_alternative_screen);
+                    bool use_alternative_screen,
+                    std::ostream& _out = std::cout );
 
   Sender<Event> event_sender_;
   Receiver<Event> event_receiver_;
@@ -75,6 +76,7 @@ class ScreenInteractive : public Screen {
 
   bool mouse_captured = false;
   bool previous_frame_resized_ = false;
+  std::ostream& outputStream;
 };
 
 }  // namespace ftxui
